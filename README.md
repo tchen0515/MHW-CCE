@@ -7,9 +7,13 @@ The process of the analysis is elaborated in Main_MHWbio.mlx.
 
 # Data source
 [^1]: Satellite sea surface temperature (https://podaac.jpl.nasa.gov/dataset/AVHRR_OI-NCEI-L4-GLOB-v2.0).
+
 [^2]: Satellite chlorophyll a concentration (https://spg-satdata.ucsd.edu/CC4km/).
+
 [^3]: Net primary production, vertically integrated chlorophyll, zooplankton displacement volume, fish eggs, and fish larvae (https://calcofi.org/)
+
 [^4]: Zooplankton taxon-specific biomass by ZooScan (https://oceaninformatics.ucsd.edu/zooscandb/secure/login.php)
+
 [^5]: Size-fractionated chlorophyll, HPLC, flow cytometry (https://oceaninformatics.ucsd.edu/datazoo/catalogs/ccelter/datasets).
 
 # Requirement
