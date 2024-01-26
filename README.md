@@ -12,6 +12,9 @@ Size-fractionated chlorophyll, HPLC, flow cytometry (https://oceaninformatics.uc
 
 # Requirement
 m_mhw1.0 (https://github.com/ZijieZhaoMMHW/m_mhw1.0)
+m_map
+fitmethis
 
 # Reference
 Zhao, Z., & Marin, M. (2019). A MATLAB toolbox to detect and analyze marine heatwaves. Journal of Open Source Software, 4(33), 1124.
+de Castro, F. (2024). fitmethis (https://www.mathworks.com/matlabcentral/fileexchange/40167-fitmethis), MATLAB Central File Exchange. Retrieved January 2, 2024.
