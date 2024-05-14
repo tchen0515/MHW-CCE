@@ -10,6 +10,8 @@ m_mhw1.0 and fitmethis are recommended for analysis
 
 m_map is recommended for generating figures
 
+R package "bestNormalize" are needed for Yeo-Johnson power transformation
+
 # Reference
 Zhao, Z., & Marin, M. (2019). A MATLAB toolbox to detect and analyze marine heatwaves. Journal of Open Source Software, 4(33), 1124.
 
