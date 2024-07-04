@@ -1,4 +1,5 @@
 %%% write a table for cascading trophic interaction analysis (zoo-fucox)
+% require packagfe "lsqfitgm"
 clear all
 close all
 % import data (Final_MHW)
