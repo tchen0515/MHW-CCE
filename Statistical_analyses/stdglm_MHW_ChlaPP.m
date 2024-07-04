@@ -1,33 +1,24 @@
 %%% calculate the coef and glm or Geometric Mean Regression results for bio-MHW
-%%% bio-MHW (file:satelliteChla, IntChla, IntPP)
+%%% satelliteChla, IntChla, IntPP
 close all
 clear all
-% cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio')
+%import data
+cd('...') & your directory
+mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
+rawmhwsate=readtable("MHW-satelliteChla.xlsx",'UseExcel',true,'Sheet','Data Table (1)');
 
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
-rawmhwsate = readtable('OriMHWOccurrence_negmostChla.csv',VariableNamingRule='preserve'); %change file name
-rawmhwpp = readtable('OriFinal_MHW_PP_trape.csv',VariableNamingRule='preserve'); %change file name
-rawmhwchla = readtable('OriFinal_MHW_Chla_trape.csv',VariableNamingRule='preserve'); %change file name
-rawmhwnitra = readtable('OriFinal_MHW_Nitracline.csv',VariableNamingRule='preserve');
-
-%% insert line station coverted information
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\CalCOFILineStationMatLab'
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\matlab&linux'
-[sateli, satest]=lat2cc(rawmhwsate.lat,rawmhwsate.long);
-rawmhwsate.line= sateli;
-rawmhwsate.station= satest;
-
-%exclude the sampling conducted in the northern region
-puremhwsate=rawmhwsate(rawmhwsate.line>=76.7,:);
-puremhwpp=rawmhwpp(rawmhwpp.Line>=76.7,:);
-puremhwchla=rawmhwchla(rawmhwchla.Line>=76.7,:);
-puremhwnitra=rawmhwnitra(rawmhwnitra.Line>=76.7,:);
+v={'Latitude','Longitude','Line','Station','Year','Month','Day','anoSST','rlduration'}
+puremhwsate=rawmhwsate;
+mashup.IntPP=str2double(puremhwpp.IntPP);
+puremhwpp=mashup(:,[v 'IntPP']);
+puremhwchla=mashup(:,[v 'IntChla']);
+puremhwnitra=mashup(:,[v 'Nitracline']);
 
 % extract variables
 phyto1=puremhwsate.Chla(isnan(puremhwsate.Chla)==0); %normal
-phyto2=puremhwchla.Chla(isnan(puremhwchla.Chla)==0); %normal
-phyto3=puremhwpp.PP(isnan(puremhwpp.PP)==0); %normal
-phyto4=puremhwnitra.ano_nitra(isnan(puremhwnitra.ano_nitra)==0);
+phyto2=puremhwchla.IntChla(isnan(puremhwchla.IntChla)==0); %normal
+phyto3=puremhwpp.IntPP(isnan(puremhwpp.IntPP)==0); %normal
+phyto4=puremhwnitra.Nitracline(isnan(puremhwnitra.Nitracline)==0);
 
 % Check the data distribution (package:fitmethis)
 addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\matlab&linux'
@@ -81,10 +72,5 @@ finalpara.Properties.VariableNames=["Index","Size","int-Rho","int-pval","B_int",
     "CI2_slo_up_R","CI2_int_low_JM","CI2_int_up_JM","CI2_slo_low_JM","CI2_slo_up_JM"]
 
 % export the table
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\statistical_results')
+cd ('...') % your output folder
 writetable(finalpara,"Oriresult_ChlaPP_nitra_south.csv")
-
-
-% regression coefficients & a matrix BINT of the given confidence intervals for B
-% b=[intercept slope]
-% bintr & bintjm= confidence limits of intercept & slopr computed by "Ricker" or "Jolicoeur and Mosimann" procedure
