@@ -2,15 +2,9 @@
 close all
 clear all
 
-% Ori-SDMHW version
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
-rawnitra = readtable('OriFinal_MHW_Nitracline.csv',VariableNamingRule='preserve');
-sf = readtable('OriFinal_MHW_SizeFraction_113_v2.csv',VariableNamingRule='preserve');
-rawpp = readtable('OriFinal_MHW_PP_trape.csv',VariableNamingRule='preserve');
-rawchla = readtable('OriFinal_MHW_Chla_trape.csv',VariableNamingRule='preserve');
-pico = readtable('OriFinal_MHW_PicoBacteria_aver10m.csv',VariableNamingRule='preserve');
-hplc = readtable('OriFinal_MHW_HPLC.csv',VariableNamingRule='preserve');
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio')
+cd('...')
+mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
+cd ('...')
 rawsate= readtable("Nitra_satelliteChla.csv",VariableNamingRule='preserve');
 
 %exclude the sampling conducted in the northern region
