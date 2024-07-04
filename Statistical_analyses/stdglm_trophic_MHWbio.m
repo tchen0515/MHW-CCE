@@ -5,7 +5,6 @@ close all
 % import data 
 cd('...')
 mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\'
 zoosatechla = readtable("v2_Trophic_ZooDisplace_satelliteChla.csv","VariableNamingRule","preserve") % ZoopDisplace-satelliteChla, generated at COPAS hpcomputer
 mashup.ChlaLarger20um=str2double(mashup.ChlaLarger20um);
 mashup.Fucoxanthin=str2double(mashup.Fucoxanthin);
