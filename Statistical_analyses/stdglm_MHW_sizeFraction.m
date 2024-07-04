@@ -2,9 +2,8 @@
 %%% variables:SizeFraction
 close all
 clear all
-% cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
-% puremhw = readtable('OriFinal_MHW_SizeFraction_113_v2.csv',VariableNamingRule='preserve'); 
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\maunscript\MHW-bio\submission materials\Final data & code\')
+%import data
+cd('...')
 mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
 mashup.Chlalow1um=str2double(mashup.Chlalow1um);
 mashup.("Chla1_3um")=str2double(mashup.("Chla1_3um"));
