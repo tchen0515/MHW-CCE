@@ -2,8 +2,13 @@
 %%% bio-MHW (file:PicoBacteria)
 close all
 clear all
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\std_final\')
-puremhw = readtable('OriFinal_MHW_PicoBacteria_aver10m.csv',VariableNamingRule='preserve'); 
+cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\maunscript\MHW-bio\submission materials\Final data & code\')
+mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
+mashup.Prochlorococcus=str2double(mashup.Prochlorococcus);
+mashup.Synechococcus=str2double(mashup.Synechococcus);
+mashup.HeteroBacteria=str2double(mashup.HeteroBacteria);
+mashup.Picoeukaryotes=str2double(mashup.Picoeukaryotes);
+puremhw=mashup;
 
 % extract variables (1) eliminate NA values
 bacteria1=puremhw.HeteroBacteria(isnan(puremhw.HeteroBacteria)==0);  %normal
@@ -22,8 +27,8 @@ if i==2    %make sure the y indexes are corresponding
     intensity = puremhw.anoSST(isnan(puremhw.Prochlorococcus)==0); % gev
     duration = puremhw.rlduration(isnan(puremhw.Prochlorococcus)==0); % nbin
 else
-     intensity = puremhw.anoSST; % gev
-     duration = puremhw.rlduration; % nbin
+     intensity = puremhw.anoSST(isnan(puremhw.HeteroBacteria)==0); % gev
+     duration = puremhw.rlduration(isnan(puremhw.HeteroBacteria)==0); % nbin
 end
 eval(['ano=',sprintf('bacteria%d',i)]);
 
