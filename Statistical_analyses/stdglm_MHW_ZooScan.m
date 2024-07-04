@@ -2,30 +2,40 @@
 %%% bio-MHW (file:ZooScan & Fish Eggs)
 close all
 clear all
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
-% import data
-zc1 = readtable('OriFinal_MHW_YJ_ZooScan_Calanoid_copepod.csv',VariableNamingRule='preserve');
-zc2 = readtable('OriFinal_MHW_YJ_ZooScan_copepoda_eucalanids.csv',VariableNamingRule='preserve');
-zc3 = readtable('OriFinal_MHW_YJ_ZooScan_copepoda_harpacticoida.csv',VariableNamingRule='preserve');
-zc4 = readtable('OriFinal_MHW_YJ_ZooScan_copepoda_poecilostomatoids.csv',VariableNamingRule='preserve');
-zc5 = readtable('OriFinal_MHW_YJ_ZooScan_euphausiids.csv',VariableNamingRule='preserve');
-zc6 = readtable('OriFinal_MHW_YJ_ZooScan_nauplii.csv',VariableNamingRule='preserve');
-zc7 = readtable('OriFinal_MHW_YJ_ZooScan_oithona_like.csv',VariableNamingRule='preserve');
-zc8 = readtable('OriFinal_MHW_YJ_ZooScan_pyrosomes.csv',VariableNamingRule='preserve');
-zc9 = readtable('OriFinal_MHW_YJ_ZooScan_salps.csv',VariableNamingRule='preserve');
-zc10 = readtable('OriFinal_MHW_YJ_ZooScan_doliolids.csv',VariableNamingRule='preserve');
-rawzc11 = readtable('OriFinal_MHW_ZooDisplace.csv',VariableNamingRule='preserve');         % modified calculation due to log-10 transformation
-rawzc12 = readtable('OriFinal_MHW_FishEgg_integrated_025grid_1215.csv',VariableNamingRule='preserve');
-zc13 = readtable('OriFinal_MHW_FishLarvae1215.csv',VariableNamingRule='preserve');
 
-%% insert line station coverted information
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\CalCOFILineStationMatLab'
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\matlab&linux'
-[feggli, feggst]=lat2cc(rawzc12.Latitude,rawzc12.Longitude);
-rawzc12.line= feggli;
-rawzc12.station= feggst;
-zc11=rawzc11(rawzc11.Line>=76.7,:);
-zc12=rawzc12(rawzc12.line>=76.7,:);
+% import data
+cd('...')
+mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
+v={'Latitude','Longitude','Line','Station','Year','Month','Day','anoSST','rlduration'}
+zc1=mashup(:,[v 'calanoid']);
+zc2=mashup(:,[v 'eucalanids']);
+zc3=mashup(:,[v 'harpacticoida']);
+zc4=mashup(:,[v 'poecilostomatoids']);
+zc5=mashup(:,[v 'euphausiids']);
+zc6=mashup(:,[v 'nauplii']);
+zc7=mashup(:,[v 'oithona']);
+zc8=mashup(:,[v 'pyrosomes']);
+zc9=mashup(:,[v 'salps']);
+zc10=mashup(:,[v 'doliolids']);
+zc11=mashup(:,[v 'ZooDisplace']);
+zc12=mashup(:,[v 'Sardine_egg' 'Anchovy_egg']);
+zc13=mashup(:,[v 'Sardine_larvae' 'Anchovy_larvae']);
+%covert the corresponding variables into numeric values
+zc1.Anomaly=str2double(zc1.calanoid);
+zc2.Anomaly=str2double(zc2.eucalanids);
+zc3.Anomaly=str2double(zc3.harpacticoida);
+zc4.Anomaly=str2double(zc4.poecilostomatoids);
+zc5.Anomaly=str2double(zc5.euphausiids);
+zc6.Anomaly=str2double(zc6.nauplii);
+zc7.Anomaly=str2double(zc7.oithona);
+zc8.Anomaly=str2double(zc8.pyrosomes);
+zc9.Anomaly=str2double(zc9.salps);
+zc10.Anomaly=str2double(zc10.doliolids);
+zc11.Anomaly=str2double(zc11.ZooDisplace);
+zc12.Sardine_egg=str2double(zc12.Sardine_egg);
+zc12.Anchovy_egg=str2double(zc12.Anchovy_egg);
+zc13.Sardine_larvae=str2double(zc13.Sardine_larvae);
+zc13.Anchovy_larvae=str2double(zc13.Anchovy_larvae);
 
 % extract variables
 for k=1:11
@@ -33,11 +43,11 @@ for k=1:11
     eval([sprintf('zoo%d',k),'=',zc,'.Anomaly(isnan(',zc,'.Anomaly)==0)']); %normal
 end
 %fish eggs
-zoo12=zc12.Ano_yjSardine(isnan(zc12.Ano_yjSardine)==0);  %sardine
-zoo13=zc12.Ano_yjAnchovy(isnan(zc12.Ano_yjAnchovy)==0);  %anchovy 
+zoo12=zc12.Sardine_egg(isnan(zc12.Sardine_egg)==0);  %sardine
+zoo13=zc12.Anchovy_egg(isnan(zc12.Anchovy_egg)==0);  %anchovy 
 % fish larvae
-zoo14=zc13.yj_sardine(isnan(zc13.yj_sardine)==0);  %sardine
-zoo15=zc13.yj_anchovy(isnan(zc13.yj_anchovy)==0);
+zoo14=zc13.Sardine_larvae(isnan(zc13.Sardine_larvae)==0);  %sardine
+zoo15=zc13.Anchovy_larvae(isnan(zc13.Anchovy_larvae)==0);
 
 % Check the data distribution (package:fitmethis)
  addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\matlab&linux'
@@ -52,17 +62,17 @@ for i=1:15
         intensity = eval([zc,'.anoSST(isnan(',zc,'.Anomaly)==0)']);
         duration = eval([zc,'.rlduration(isnan(',zc,'.Anomaly)==0)']);
    elseif i==12  % sardine
-        intensity = zc12.anoSST(isnan(zc12.Ano_yjSardine)==0); % gev
-        duration = zc12.rlduration(isnan(zc12.Ano_yjSardine)==0); % nbin
+        intensity = zc12.anoSST(isnan(zc12.Sardine_egg)==0); % gev
+        duration = zc12.rlduration(isnan(zc12.Sardine_egg)==0); % nbin
    elseif i==13    % anchovy
-        intensity = zc12.anoSST(isnan(zc12.Ano_yjAnchovy)==0); % gev
-        duration = zc12.rlduration(isnan(zc12.Ano_yjAnchovy)==0); % nbin
+        intensity = zc12.anoSST(isnan(zc12.Anchovy_egg)==0); % gev
+        duration = zc12.rlduration(isnan(zc12.Anchovy_egg)==0); % nbin
    elseif i==14    % sardine
-        intensity = zc13.anoSST(isnan(zc13.yj_sardine)==0); % gev
-        duration = zc13.rlduration(isnan(zc13.yj_sardine)==0); % nbin
+        intensity = zc13.anoSST(isnan(zc13.Sardine_larvae)==0); % gev
+        duration = zc13.rlduration(isnan(zc13.Sardine_larvae)==0); % nbin
    elseif i==15    % anchovy
-        intensity = zc13.anoSST(isnan(zc13.yj_anchovy)==0); % gev
-        duration = zc13.rlduration(isnan(zc13.yj_anchovy)==0); % nbin
+        intensity = zc13.anoSST(isnan(zc13.Anchovy_larvae)==0); % gev
+        duration = zc13.rlduration(isnan(zc13.Anchovy_larvae)==0); % nbin
    end
 eval(['ano=',sprintf('zoo%d',i)]);
 
@@ -102,8 +112,8 @@ variable=array2table(["calanoid";
 "ZooDisplace";
 "sardine-egg";
 "anchovy-egg"; ...
-"sardine";
-"anchovy"]);
+"sardine-larvae";
+"anchovy-larvae"]);
 finalpara=[variable para];
 finalpara.Properties.VariableNames=["Index","Size","int-Rho","int-pval","B_int","B_slope","CI_int_low_R","CI_int_up_R","CI_slo_low_R",...
     "CI_slo_up_R","CI_int_low_JM","CI_int_up_JM","CI_slo_low_JM","CI_slo_up_JM","dur-Rho","dur-pval","B2_int","B2_slope","CI2_int_low_R","CI2_int_up_R","CI2_slo_low_R",...
@@ -112,8 +122,3 @@ finalpara.Properties.VariableNames=["Index","Size","int-Rho","int-pval","B_int",
 % export the table
 cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\statistical_results')
 writetable(finalpara,"Oriresult_Zooplankton&Fish_south.csv") 
-
-
-% regression coefficients & a matrix BINT of the given confidence intervals for B
-% b=[intercept slope]
-% bintr & bintjm= confidence limits of intercept & slopr computed by "Ricker" or "Jolicoeur and Mosimann" procedure
