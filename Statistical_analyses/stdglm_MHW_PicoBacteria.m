@@ -62,7 +62,7 @@ finalpara.Properties.VariableNames=["Index","Size","int-Rho","int-pval","B_int",
     "CI2_slo_up_R","CI2_int_low_JM","CI2_int_up_JM","CI2_slo_low_JM","CI2_slo_up_JM"]
 
 % export the table
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\statistical_results')
+cd ('...')
 writetable(finalpara,"Oriresult_PicoBacteria.csv")
 
 
