@@ -3,7 +3,7 @@ The files contains the codes used in Chen et al: Multi-trophic level responses t
 
 These codes can mainly be catgorized into four parts: data pre-processing, anomalies calculation, statistical analyses and figure generating. 
 
-The process of the analysis is elaborated in Main_MHWbio.mlx. The data sources are indicated in the manuscript.
+The process of the analysis is elaborated in Main_MHWbio.mlx. The compiled data used in the analysis are provided here (MHW-in situ data.xlsx/MHW-satelliteChla.xlsx/Statistics_MHW_final.xlsx). The raw data sources are indicated in the manuscript.
 
 # Package requirement
 m_mhw1.0 and fitmethis are recommended for analysis
