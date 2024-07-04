@@ -1,17 +1,15 @@
 %%% plot barplot for Spearman's rank coef of each bio-index
 close all
 clear all
-% import main data
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\statistical_results')
-% seperately sheets by MHW characteristics
-mhwmag=readtable('Statistics_MHWbio_Ori0423.xlsx','UseExcel',true,'Sheet','OriIntensity_south');
-mhwdur=readtable('Statistics_MHWbio_Ori0423.xlsx','UseExcel',true,'Sheet','OriDuration_south');
+cd('...')
+mhwmag=readtable('Statistics_MHWbio_final.xlsx','UseExcel',true,'Sheet','OriIntensity_south',VariableNamingRule='preserve');
+mhwdur=readtable('Statistics_MHWbio_final.xlsx','UseExcel',true,'Sheet','OriDuration_south',VariableNamingRule='preserve');
 
 % seperate bio-indexes by taxa
-phytomag=mhwmag([40 21 23 24 1:5 11:13 18 19 17 20],:); % exclude satellite NPP & reorder taxa
-zoomag=mhwmag([35 25:28 31 30 29 32:34 36:39],:); % only select specific taxa 
-phytodur=mhwdur([40 21 23 24 1:5 11:13 18 19 17 20],:);  
-zoodur=mhwdur([35 25:28 31 30 29 32:34 36:39],:);
+phytomag=mhwmag(1:16,:); % exclude satellite NPP & reorder taxa
+zoomag=mhwmag(17:31,:); % only select specific taxa 
+phytodur=mhwdur(1:16,:);  
+zoodur=mhwdur(17:31,:);
 
 % barplot for phyto_intensity
 p1=figure('pos',[10 55 20000 10000])
@@ -103,23 +101,3 @@ ylim([-0.4 0.4])
 yticks(-0.4:0.2:0.4)
 ylabel("Rho")
 title('(d) MHW duration versus Zooplankton & Fish')
-
-
-% % trophic relationship
-% p2=figure(5)
-% x5=categorical(mhwtro.prey_index([1:4]));
-% x5=categorical({'Chla-20um','IntChla','SatelliteChla','fucoxanthin'});
-% y5=mhwtro.Rho([1:4]);
-% pval5=find(mhwtro.pval([1:4])<0.05); % which index show significance
-% b5=bar(x5,y5);
-% b5.FaceColor='flat';
-% b5.CData(pval5,:)=[1 0 0];
-% set(gca,'fontsize', 20,'fontweight','bold','xticklabel',{'Chla>20um','VerIntChla','SatelliteChla','Fucoxanthin'});
-% ylim auto
-% ylabel("Rho")
-% title('trophic relationship ~ zooplankton')
-
-%save figure
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\mhwbio_figure\Rho')
-savefig(p1,'all_characteristics_231215.fig')
-savefig(p2,'trophic_zooVolume.fig')
