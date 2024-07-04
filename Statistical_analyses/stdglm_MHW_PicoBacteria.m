@@ -2,7 +2,7 @@
 %%% bio-MHW (file:PicoBacteria)
 close all
 clear all
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\maunscript\MHW-bio\submission materials\Final data & code\')
+cd('...')
 mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
 mashup.Prochlorococcus=str2double(mashup.Prochlorococcus);
 mashup.Synechococcus=str2double(mashup.Synechococcus);
