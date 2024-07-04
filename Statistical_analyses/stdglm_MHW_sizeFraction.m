@@ -1,38 +1,39 @@
 %%% calculate the coef and glm or Geometric Mean Regression results for
-%%% bio-MHW (file:SizeFraction)
+%%% variables:SizeFraction
 close all
 clear all
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
-puremhw = readtable('OriFinal_MHW_SizeFraction_113_v2.csv',VariableNamingRule='preserve'); 
+% cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
+% puremhw = readtable('OriFinal_MHW_SizeFraction_113_v2.csv',VariableNamingRule='preserve'); 
+cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\maunscript\MHW-bio\submission materials\Final data & code\')
+mashup=readtable('MHW-in situ data.xlsx','UseExcel',true,'Sheet','Data Table (1)');
+mashup.Chlalow1um=str2double(mashup.Chlalow1um);
+mashup.("Chla1_3um")=str2double(mashup.("Chla1_3um"));
+mashup.("Chla3_8um")=str2double(mashup.("Chla3_8um"));
+mashup.("Chla8_20um")=str2double(mashup.("Chla8_20um"));
+mashup.ChlaLarger20um=str2double(mashup.ChlaLarger20um);
+puremhw=mashup;
+
 
 % extract variables (1) eliminate NA values
- chla1= puremhw.absChlower1um(isnan(puremhw.absChlower1um)==0); %normal
- chla2= puremhw.("absChla1-3um")(isnan(puremhw.("absChla1-3um"))==0); %normal
- chla3= puremhw.("absChla3-8um")(isnan(puremhw.("absChla3-8um"))==0); %normal
- chla4= puremhw.("absChla8-20um")(isnan(puremhw.("absChla8-20um"))==0); %normal
- chla5= puremhw.absChlalarge20um(isnan(puremhw.absChlalarge20um)==0); %normal
- chla6= puremhw.Chlalower1um(isnan(puremhw.Chlalower1um)==0);
- chla7=puremhw.("Chla1-3um")(isnan(puremhw.("Chla1-3um"))==0); %normal
- chla8= puremhw.("Chla3-8um")(isnan(puremhw.("Chla3-8um"))==0); %normal
- chla9= puremhw.("Chla8-20um")(isnan(puremhw.("Chla8-20um"))==0); %normal
- chla10= puremhw.Chlalarge20um(isnan(puremhw.Chlalarge20um)==0); %normal 
-
+ chla1= puremhw.Chlalow1um(isnan(puremhw.Chlalow1um)==0); %normal
+ chla2= puremhw.("Chla1_3um")(isnan(puremhw.("Chla1_3um"))==0); %normal
+ chla3= puremhw.("Chla3_8um")(isnan(puremhw.("Chla3_8um"))==0); %normal
+ chla4= puremhw.("Chla8_20um")(isnan(puremhw.("Chla8_20um"))==0); %normal
+ chla5= puremhw.ChlaLarger20um(isnan(puremhw.ChlaLarger20um)==0); %normal
+ 
 % Check the data distribution (package:fitmethis)
 addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\matlab&linux'
 % X = fitmethis(chla2);
 % X = fitmethis(duration); % output will indicate the rank of distribution type and show the hist polt
 
 % Main statistical analysis part (maunally change the variable name)
-for i=1:10
+for i=1:5
 if i==4    %make sure the y indexes are corresponding
-    intensity = puremhw.anoSST(isnan(puremhw.("absChla8-20um"))==0); % gev
-    duration = puremhw.rlduration(isnan(puremhw.("absChla8-20um"))==0); % nbin
-elseif i==9
-    intensity = puremhw.anoSST(isnan(puremhw.("Chla8-20um"))==0); % gev
-    duration = puremhw.rlduration(isnan(puremhw.("Chla8-20um"))==0); % nbin
+    intensity = puremhw.anoSST(isnan(puremhw.("Chla8_20um"))==0); % gev
+    duration = puremhw.rlduration(isnan(puremhw.("Chla8_20um"))==0); % nbin
 else
-     intensity = puremhw.anoSST; % gev
-     duration = puremhw.rlduration; % nbin
+     intensity = puremhw.anoSST(isnan(puremhw.Chlalow1um)==0); % gev
+     duration = puremhw.rlduration(isnan(puremhw.Chlalow1um)==0); % nbin
 end
 eval(['ano=',sprintf('chla%d',i)]);
 
@@ -59,22 +60,14 @@ para(i,:)=[height(ano),rho1,pval1,b1(1),b1(2),bintr1(1,:),bintr1(2,:),bintjm1(1,
 end
 
 para=array2table(para);
-variable=array2table(["absChlalow1um";"absChla1-3um";"absChla3-8um";"absChla8-20um";"absChlaLarger20um";...
-"Chlalow1um";"Chla1-3um";"Chla3-8um";"Chla8-20um";"ChlaLarger20um"]);
+variable=array2table(["Chlalow1um";"Chla1_3um";"Chla3_8um";"Chla8_20um";"ChlaLarger20um"]);
 finalpara=[variable para];
 finalpara.Properties.VariableNames=["Index","Size","int-Rho","int-pval","B_int","B_slope","CI_int_low_R","CI_int_up_R","CI_slo_low_R",...
     "CI_slo_up_R","CI_int_low_JM","CI_int_up_JM","CI_slo_low_JM","CI_slo_up_JM","dur-Rho","dur-pval","B2_int","B2_slope","CI2_int_low_R","CI2_int_up_R","CI2_slo_low_R",...
     "CI2_slo_up_R","CI2_int_low_JM","CI2_int_up_JM","CI2_slo_low_JM","CI2_slo_up_JM"]
 
 % export the table
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\statistical_results')
+cd ('...')
 writetable(finalpara,"Oriresult_SizeFraction.csv")
 
-
-
-%label the column
-
-% regression coefficients & a matrix BINT of the given confidence intervals for B
-% b=[intercept slope]
-% bintr & bintjm= confidence limits of intercept & slopr computed by "Ricker" or "Jolicoeur and Mosimann" procedure
 
