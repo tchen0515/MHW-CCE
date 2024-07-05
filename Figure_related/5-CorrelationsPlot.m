@@ -31,10 +31,10 @@ Duration.Labels(find(strcmp(Duration.Index,'Anchovy-larvae'))) = {'Anchovy Larva
 
 % select the targeted variables
 
-phy_inds = [1:5,11:13,17:20,21,23,24];
-zoop_inds = 25:35;
-fish_inds = 36:39;
-nitra_inds = 40;
+phy_inds = 2:16;
+zoop_inds = 17:27;
+fish_inds = 28:31;
+nitra_inds = 1;
 
 fighandle = figure('pos',[1000 1000 1000 1000]);
 fighandle.Units = 'inches';
@@ -50,22 +50,22 @@ zoop_inds = intersect(significant,zoop_inds);
 fish_inds = intersect(significant,fish_inds);
 for i=1:length(phy_inds)
     if ismember(i,1:3)
-        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'^k','MarkerFaceColor',[0 0 1],'MarkerSize',10)
+        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'^k','MarkerFaceColor',[0 0 1],'MarkerSize',12)
     elseif i==length(phy_inds)
-        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'pentagramk','MarkerFaceColor',[0 0 1],'MarkerSize',12)
+        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'vk','MarkerFaceColor',[0 0 1],'MarkerSize',12)
     else
-        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'vk','MarkerFaceColor',[0 0 1],'MarkerSize',10)
+        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'pentagramk','MarkerFaceColor',[0 0 1],'MarkerSize',12)
     end
 end
 for i=1:length(zoop_inds)
     if i==1
         plot(abs(Intensity.Rho(zoop_inds(i))),abs(Duration.Rho(zoop_inds(i))),'pentagramk','MarkerFaceColor',[1 0 0],'MarkerSize',12)
     else
-        plot(abs(Intensity.Rho(zoop_inds(i))),abs(Duration.Rho(zoop_inds(i))),'vk','MarkerFaceColor',[1 0 0],'MarkerSize',10)
+        plot(abs(Intensity.Rho(zoop_inds(i))),abs(Duration.Rho(zoop_inds(i))),'vk','MarkerFaceColor',[1 0 0],'MarkerSize',12)
     end
 end
 
-plot(abs(Intensity.Rho(fish_inds)),abs(Duration.Rho(fish_inds)),'vk','MarkerFaceColor',[0 1 0],'MarkerSize',10)
+%plot(abs(Intensity.Rho(fish_inds)),abs(Duration.Rho(fish_inds)),'vk','MarkerFaceColor',[0 1 0],'MarkerSize',10)
 plot([0 0.4],[0 0.4],':k')
 for i=1:length(phy_inds)  % locate the text labels 
     if phy_inds(i)==4
