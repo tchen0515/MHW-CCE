@@ -49,19 +49,19 @@ phy_inds = intersect(significant,phy_inds);
 zoop_inds = intersect(significant,zoop_inds);
 fish_inds = intersect(significant,fish_inds);
 for i=1:length(phy_inds)
-    if ismember(i,1:3)
-        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'^k','MarkerFaceColor',[0 0 1],'MarkerSize',12)
+    if i==1
+        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'pentagramk','MarkerFaceColor',[0 0 1],'MarkerSize',12)
     elseif i==length(phy_inds)
         plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'vk','MarkerFaceColor',[0 0 1],'MarkerSize',12)
     else
-        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'pentagramk','MarkerFaceColor',[0 0 1],'MarkerSize',12)
+        plot(abs(Intensity.Rho(phy_inds(i))),abs(Duration.Rho(phy_inds(i))),'^k','MarkerFaceColor',[0 0 1],'MarkerSize',12)
     end
 end
 for i=1:length(zoop_inds)
     if i==1
-        plot(abs(Intensity.Rho(zoop_inds(i))),abs(Duration.Rho(zoop_inds(i))),'pentagramk','MarkerFaceColor',[1 0 0],'MarkerSize',12)
-    else
         plot(abs(Intensity.Rho(zoop_inds(i))),abs(Duration.Rho(zoop_inds(i))),'vk','MarkerFaceColor',[1 0 0],'MarkerSize',12)
+    else
+        plot(abs(Intensity.Rho(zoop_inds(i))),abs(Duration.Rho(zoop_inds(i))),'pentagramk','MarkerFaceColor',[1 0 0],'MarkerSize',12)
     end
 end
 
@@ -82,16 +82,7 @@ for i=1:length(zoop_inds)
     end
 
 end
-for i=1:length(fish_inds) % fish
-    if i==1
-         text(abs(Intensity.Rho(fish_inds(i)))-0.01,abs(Duration.Rho(fish_inds(i)))+0.015,Duration.Labels(fish_inds(i)),'FontSize',11)
-    elseif i==length(fish_inds)-1
-        text(abs(Intensity.Rho(fish_inds(i)))-0.01,abs(Duration.Rho(fish_inds(i)))+0.015,Duration.Labels(fish_inds(i)),'FontSize',11)
-    elseif i==length(fish_inds)
-        text(abs(Intensity.Rho(fish_inds(i)))-0.01,abs(Duration.Rho(fish_inds(i)))+0.015,Duration.Labels(fish_inds(i)),'FontSize',11)
-    end
 
-end
 xlabel('Correlation with SD-Intensity (Abs value)','FontSize',14)
 ylabel('Correlation with Duration (Abs value)','FontSize',14)
 set(gca,'box','on','Fontsize',14)
