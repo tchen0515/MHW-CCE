@@ -2,14 +2,14 @@
 close all
 clear all
 % import station-coordinate chart
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\CruiseInfo\'
+addpath '...\CalCOFI\CruiseInfo\'
 staorder = readtable('CalCOFIStationOrder.csv',VariableNamingRule='preserve')
 % import MHW event table (with coordinate)
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\MHW\output\csv_mat-file\'
+addpath '...\MHW\output\csv_mat-file\'
 mhw = readtable('newMHW_1982-2021.csv',VariableNamingRule='preserve')
 
 % import targeted file 
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\output'\output_zooother\
+addpath '...\CalCOFI\output'\output_zooother\
 zoovol = readtable('v2_Anomaly_ZooDisplaceVol.csv',VariableNamingRule='preserve') % data generated in anomaly_ZooDisplace.m
 % insert coordinate information into targeted file (station ID->coodinate)
 zoovolnew=array2table(zeros(height(zoovol),width(zoovol)+2));
@@ -81,6 +81,6 @@ extend.Properties.VariableNames=["occurrence","mhw_onset","mhw_end","mhw_dur","i
 zoovolfinal=[zoovolnew extend];
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\output\output_mhwbio')
+cd('...\CalCOFI\output\output_mhwbio')
 filename=['v2_MHWOccurrence_ZooDisplace.csv'];
 writetable(zoovolfinal,filename);
