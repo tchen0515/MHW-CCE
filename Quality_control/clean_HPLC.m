@@ -2,7 +2,7 @@
 close all
 clear all
 % import data
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd('...\CalCOFI\Phyto')
 rawhplc = readtable('Q-CCE-HPLC (Datazoo)10182023.xls','Sheet','Q-CCE-HPLC (Datazoo)') %HPLC rawest data with dateime
 
 % eliminate bad-quality data
@@ -51,5 +51,5 @@ hplc3=hplc3(:,[1:13 14 16 18 20]); %remove the "backup" columns
 hplc3.Properties.VariableNames(14:17)={'TotalChla','dvChla','Fucoxanthin','hexfucox'};
 
 % export data
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd('...\CalCOFI\Phyto')
 writetable(hplc3,"clean_HPLC.csv")
