@@ -6,7 +6,7 @@ close all
 list={'Calanoid_copepod','copepoda_eucalanids','copepoda_harpacticoida','copepoda_poecilostomatoids'...
     'euphausiids','nauplii','oithona_like','pyrosomes','salp','doliolids'}; % list out all targeted taxa
 for a=1:length(list)
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Zoo\yj_ZooScan')
+cd ('...\CalCOFI\Zoo\yj_ZooScan')
 taxa=char(string(list(a)));
 eval(['raw = readtable("YJ_',taxa,'.csv",VariableNamingRule="preserve")']);
 ALLbio=raw(3:height(raw),2:end);
@@ -27,7 +27,7 @@ cruise_month.Properties.VariableNames=["Month"];
 cruise_date.Properties.VariableNames=["Date"];
 
 % convert month into season scale
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath '...\CalCOFI\code_CalCOFI\'
 season=table2array(cruise_month);
 for s=1:height(season)
     season(s)=month2season(season(s));
@@ -109,7 +109,7 @@ final.Properties.VariableNames=["Year","Month","Date","Season","Line","Station",
 % eval([anofinal,'=final']);
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_zooscan')
+cd('...\CalCOFI\Output\output_zooscan')
 dataset='YJ_ZooScan';
 filename=[dataset,'_',taxa,'.csv']; % make sure taxa is the correct name
 writetable(final,filename); 
