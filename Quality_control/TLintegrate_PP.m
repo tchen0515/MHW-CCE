@@ -4,7 +4,7 @@ close all
 clear all
 
 %import data
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd ('...\CalCOFI\Phyto')
 ppure = readtable('PP_RawFromBottle.csv',VariableNamingRule='preserve'); % data generated in clean_PP.csv
 % set 0-m value as 1-m value
 ppure.Depthm(ppure.Depthm==0)=1;
@@ -94,7 +94,7 @@ x.Properties.VariableNames=["Year","Month","Day","Season","Line","Station",...
 x(~x.Year,:) = [];
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd('...\CalCOFI\Phyto')
 filename=['PP_VerticalInte.csv'];
 writetable(x,filename);
 
