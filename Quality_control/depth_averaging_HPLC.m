@@ -3,7 +3,7 @@ close all
 clear all
 
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto\')
+cd ('...\CalCOFI\Phyto\')
 raw = readtable('clean_HPLC.csv');   % dataframe generated in clean_HPLC.m. Use the new QC version
 raw = raw(isnat(raw.DatetimeGMT)==0,:);
 raw = raw(raw.Depth<=16,:); 
@@ -11,7 +11,7 @@ idx=find(isnan(raw.dvChla)|isnan(raw.hexfucox)|isnan(raw.Fucoxanthin)); % elimin
 raw(idx,:)=[];
 
 %convert month into season scale
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath '...\CalCOFI\code_CalCOFI\'
 season=[];
 for s=1:height(raw)
     season(s,:)=month2season(raw.Month(s));
@@ -95,6 +95,6 @@ x.Properties.VariableNames=["Year","Month","Day","Season","Latitude","Longitude"
     "dvChla","Fucoxanthin","hexfucox"];  
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd('...\CalCOFI\Phyto')
 filename=['HPLC_aver16m.csv'];
 writetable(x,filename);
