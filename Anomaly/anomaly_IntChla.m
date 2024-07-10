@@ -2,7 +2,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto\')
+cd ('...\CalCOFI\Phyto\')
 raw = readtable('Chla_VerticalInte.csv',VariableNamingRule='preserve');  % data generated in TLintegrate_Chla.csv
 raw= raw(find(raw.Year~=0),:);
 % eliminate missing values
@@ -80,6 +80,6 @@ final=array2table(final);
 final.Properties.VariableNames=["Year","Month","Date","Season","Line","Station","Chla"];
 
 %export table
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_phyto\')
+cd('...\CalCOFI\Output\output_phyto\')
 filename=['v2_Anomaly_Chla_Trapezoid.csv'];
 writetable(final,filename);
