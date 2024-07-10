@@ -5,7 +5,7 @@ clear all
 close all
 
 % import SST-related dataset
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\MHW\output\csv_mat-file\')
+cd ('...\MHW\output\csv_mat-file\')
 % load('AVHRR_workspace_1982-2021.mat') 
 load('mhw_stdanomaly_240409.mat')  % SD standardized MHW intensity. Be sure to see if you are using original or SD version (mhw_ts/mhw_sdts)
 
@@ -14,7 +14,7 @@ list={'Chla_Trapezoid','PP_Trapezoid','PicoBacteria_aver10m','HPLC','SizeFractio
     'ZooDisplace','FishEgg_integrated_025grid_1215','FishLarvae1215'};  %,'negmostChla' & nitracline
 
 for a=1:length(list)
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\')
+cd ('...\CalCOFI\Output\output_mhwbio\')
 taxa=char(string(list(a)));
  eval(['raw = readtable("v2_MHWOccurrence_',taxa,'.csv",VariableNamingRule="preserve")']) % for non-Fish related variables
 % eval(['raw = readtable("MHWOccurrence_',taxa,'.csv",VariableNamingRule="preserve")']) % FishLarvae & FishEgg do not have "v2_"
@@ -66,10 +66,10 @@ end
 sfmhw.rlduration=rl; %insert into main table
 
 % export data
-% cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\')
+% cd ('...\CalCOFI\Output\output_mhwbio\')
 % filename=['Final_MHW_',taxa,'.csv']
 % export SD anomaly data
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
+cd ('...\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
 filename=['OriFinal_MHW_',taxa,'.csv']  % manually type file name
 writetable(sfmhw,filename)
 end
