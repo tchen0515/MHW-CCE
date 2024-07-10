@@ -3,7 +3,7 @@ clear all
 close all
 
 %import data
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\other\')
+cd('...\CalCOFI\other\')
 rawnitra=readtable("clean_nitra.csv");
 
 % omit the data collected before 1982 (the start year of SST)
@@ -135,6 +135,6 @@ x(isnan(x.Nitracline),:)= [];
 
 
 %%export data
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\other\')
+cd('...\CalCOFI\other\')
 filename=['Final_nitracline.csv'];
 writetable(x,filename);              % remember to do YJ-Johnson transformation
