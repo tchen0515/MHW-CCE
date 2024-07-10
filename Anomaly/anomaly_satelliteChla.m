@@ -3,7 +3,7 @@ close all
 clear all
 
 % Before running this script, making sure you have imported the data 
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\output\output_phyto')
+cd ('...\CalCOFI\output\output_phyto')
 load('chla_log10_workspace_clean.mat')      % the one have chla_log10 (transformed)
 size(sst_full); %size of data
  %lon_lat of region
