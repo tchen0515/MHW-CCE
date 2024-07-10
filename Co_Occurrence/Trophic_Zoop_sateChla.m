@@ -3,11 +3,11 @@ close all
 clear all
 
 % import Final_MHW_ZooDisplacement
-cd('/nexsan/people/tchen/CalCOFI/output_mhwbio/')
+cd('.../CalCOFI/output_mhwbio/')
 zoo=readtable("v2_Final_MHW_ZooDisplace.csv","VariableNamingRule","preserve");
 
 %import Chla anomaly
-cd('/nexsan/people/tchen/CalCOFI/output_phyto/')
+cd('.../CalCOFI/output_phyto/')
 % load("chla_anomaly.mat") %chlaano
 load("chlalog10_anomaly_workspace_240404.mat") % origianl log-transformed Chla
 
@@ -53,7 +53,7 @@ end
 zoo.Chla=tagetChla
 
 % export output
-cd('/nexsan/people/tchen/CalCOFI/output_mhwbio/')
+cd('.../CalCOFI/output_mhwbio/')
 filename='v2_Trophic_ZooDisplace_satelliteChla.csv';
 writetable(zoo,filename)
 
