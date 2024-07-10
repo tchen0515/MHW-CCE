@@ -2,7 +2,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Zoo')
+cd ('...\CalCOFI\Zoo')
 raw = readtable('195101-201607_1701-1704_1802-1804_Zoop',VariableNamingRule='preserve')
 ALLbio=raw(:,[2 4:24]);
 ALLbio.Properties.VariableNames = ["Cruise","StationID","Cruz_Sta","Ship_Code","Order_Occ","Cruz_Code",...
@@ -23,7 +23,7 @@ cruise_month.Properties.VariableNames=["Month"];
 cruise_day.Properties.VariableNames=["Date"];
 
 % convert month into season scale
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath '...\CalCOFI\code_CalCOFI\'
 season=table2array(cruise_month);
 for s=1:height(season)
     season(s)=month2season(season(s));
@@ -106,6 +106,6 @@ final.Properties.VariableNames=["Year","Month","Date","Season","Line","Station",
         "Anomaly"];
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_zooother')
+cd('...\CalCOFI\Output\output_zooother')
 filename=['v2_Anomaly_ZooDisplaceVol.csv'];
 writetable(final,filename); 
