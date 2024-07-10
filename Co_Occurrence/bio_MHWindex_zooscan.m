@@ -5,7 +5,7 @@ clear all
 close all
 
 % import SST-related dataset
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\MHW\output\csv_mat-file\')
+cd ('...\MHW\output\csv_mat-file\')
 % load('AVHRR_workspace_1982-2021.mat')
 load('mhw_stdanomaly_240409.mat')  % SD standardized MHW intensity. Be sure to see if you are using original or SD version (mhw_ts/mhw_sdts)
 
@@ -13,7 +13,7 @@ load('mhw_stdanomaly_240409.mat')  % SD standardized MHW intensity. Be sure to s
 list={'Calanoid_copepod','copepoda_eucalanids','copepoda_harpacticoida','copepoda_poecilostomatoids'...
     'euphausiids','nauplii','oithona_like','pyrosomes','salps','doliolids'}; 
 for a=1:length(list)
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\mhw_zooscan\')   
+cd ('...\CalCOFI\Output\output_mhwbio\mhw_zooscan\')   
 taxa=char(string(list(a)));
 eval(['raw = readtable("MHWOccurrence_YJ_ZooScan_',taxa,'.csv",VariableNamingRule="preserve")'])
 
@@ -63,10 +63,10 @@ end
 sfmhw.rlduration=rl; %insert into main table
 
 % export data
-% cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\std_final')
+% cd ('...\CalCOFI\Output\output_mhwbio\std_final')
 % filename=['v2_Final_MHW_YJ_ZooScan_',taxa,'.csv'];
 % export SD anomaly data
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
+cd ('...\CalCOFI\Output\output_mhwbio\OriBio-SDMHW\')
 filename=['OriFinal_MHW_YJ_ZooScan_',taxa,'.csv'];
 writetable(sfmhw,filename)
 end
