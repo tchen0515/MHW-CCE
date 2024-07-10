@@ -1,5 +1,5 @@
 ###calculate anomaly of CalCOFI ZooScan data
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/Fish')
+setwd('.../CalCOFI/Fish')
 #fish<-read.csv('FishLarve.csv',header=TRUE) #datasheet generated from clean_FishLarvae.m 
 fish<-read.csv('FishLarve1215.csv',header=TRUE) 
 
@@ -27,7 +27,7 @@ trans_fish<-cbind(fish,sarp,ancp)
 colnames(trans_fish)<-c(colnames(fish),"yj_sardine","yj_anchovy")
 
 #export table
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/Fish')
+setwd('.../CalCOFI/Fish')
 write.csv(trans_fish,file=sprintf("YJ_FishLarve1215.csv"))
 
 #proportion of zero values
