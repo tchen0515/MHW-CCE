@@ -1,5 +1,5 @@
 ### Yeo-Johnson transformation for CalCOFI nitracline data calculating anomaly 
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/other')
+setwd('.../CalCOFI/other')
 nutrient<-read.csv('Final_nitracline.csv',header=TRUE)   #datasheet generated from nitracline.m 
 
 #remove non-data part(description)
@@ -20,6 +20,6 @@ colnames(trans_nitra)<-c(colnames(nutrient),"yj_nitra")
 
 
 #export table
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/other')
+setwd('.../CalCOFI/other')
 write.csv(trans_nitra,file=sprintf("YJ_Nitracline.csv"))
 
