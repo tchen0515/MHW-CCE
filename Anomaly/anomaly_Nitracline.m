@@ -3,7 +3,7 @@ clear all
 close all
 
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\other')
+cd ('...\CalCOFI\other')
 rawnitra = readtable('YJ_Nitracline.csv',VariableNamingRule="preserve")
 rawnitra(:,1)=[];
 
@@ -77,6 +77,6 @@ final=array2table(final);
 final.Properties.VariableNames=["Line","Station","Year","Season","Month","Day","yj_nitracline"];
 
 %export table
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\')
+cd('...\CalCOFI\Output\')
 filename=['Anomaly_Nitracline.csv'];
 writetable(final,filename);
