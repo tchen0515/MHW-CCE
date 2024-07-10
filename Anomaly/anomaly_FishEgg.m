@@ -2,14 +2,14 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Fish\')
+cd (...\CalCOFI\Fish\')
 raw = readtable('YJ_FishEgg_025grid_1215.csv') % make sure the data has been transformed in YJtrans_FishEgg.R
 fishegg=raw(:,[2:4 8:9 12:15]);
 fishegg.Properties.VariableNames = ["Year","Month","Day","Latitude","Longitude"...
     "sardine","anchovy","yj_sardine","yj_anchovy"];
 
 % convert month into season scale
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath ...\CalCOFI\code_CalCOFI\'
 season=fishegg.Month;
 for s=1:height(season)
     season(s)=month2season(fishegg.Month(s));
@@ -41,7 +41,7 @@ fegg15(idx,:)=[];
 fegg=fegg15;
 
 % % transfer the global coordinate into Line-Station
-% addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\CruiseInfo\'
+% addpath ...\CalCOFI\CruiseInfo\'
 % staorder = readtable('CalCOFIStationOrder.csv',VariableNamingRule='preserve')
 % 
 % % select the region covering the station 
@@ -188,26 +188,8 @@ final=array2table(final);
 final.Properties.VariableNames=["Year","Month","Day","Season","Latitude","Longitude",...
     "Ano_yjSardine","Ano_yjAnchovy"];
 
-% elminate the sampling only coducted at certain station once (have been
-% done in convertDaily_FishEgg.m
-% line=final.Line;
-% station=final.Station;
-% info=[line,station];
-% rl_sampling=unique(info,'rows'); % sort out the list of daliy sampling at each station
-% rl_sampling=array2table(rl_sampling);
-% rl_sampling.Properties.VariableNames=["Line","Station"];
-% for i=1:height(rl_sampling)
-%     idx=find(final.Line==rl_sampling.Line(i)&final.Station==rl_sampling.Station(i));
-% if length(idx)==1
-%     final.Year(idx)=0;
-% end
-% end
-% finalfish=final(final.Year~=0,:);
-% finalfish.Properties.VariableNames=["Year","Month","Day","Season","Latitude","Longitude",...
-%     "Ano_yjSardine","Ano_yjAnchovy"];
-
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\output\output_zooother')
+cd(...\CalCOFI\output\output_zooother')
 filename=['Anomaly_FishEgg_integrated_025grid_1215.csv'];
 writetable(final,filename);
 
