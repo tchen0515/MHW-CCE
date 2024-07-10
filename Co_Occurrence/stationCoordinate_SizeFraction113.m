@@ -2,14 +2,14 @@
 close all
 clear all
 % import station-coordinate chart
-addpath 'C:\Users\USER\OneDrive - Florida State University\CalCOFI\CruiseInfo\'
+addpath '...\CalCOFI\CruiseInfo\'
 staorder = readtable('CalCOFIStationOrder.csv',VariableNamingRule='preserve')
 % import MHW event table (with coordinate)
-addpath 'C:\Users\USER\OneDrive - Florida State University\MHW\output\csv_mat-file\'
+addpath '...\MHW\output\csv_mat-file\'
 mhw = readtable('newMHW_1982-2021.csv',VariableNamingRule='preserve')
 
 % import targeted file (use SizeFraction_113)
-addpath 'C:\Users\USER\OneDrive - Florida State University\CalCOFI\output\output_phyto\'
+addpath '...\CalCOFI\output\output_phyto\'
 sf113 = readtable('v2_Anomaly_SizeFraction_113_v2.csv',VariableNamingRule='preserve') % dataframe generate by (std)anomaly_SizeFraction113.m. 
  
 % insert coordinate information into targeted file (station->coodinate)
@@ -99,7 +99,7 @@ sff113final=[sff113new extend];
 % which rows has MHW occurrence
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\USER\OneDrive - Florida State University\CalCOFI\output\output_mhwbio')
+cd('...\CalCOFI\output\output_mhwbio')
 filename=['v2_MHWOccurrence_SizeFraction_113_v2.csv']; %alter the "std" if you run for original anomaly
 writetable(sff113final,filename);
 
