@@ -2,7 +2,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Micro\')
+cd ('...\CalCOFI\Micro\')
 raw = readtable('picoBacteria_194.csv',VariableNamingRule='preserve');
 raw(:,16)=[];
 raw.Properties.VariableNames(4)=["DatetimeUTC"];
@@ -19,7 +19,7 @@ cruise_ym(:,2)=time(:,2);
 cruise_ym(:,3)=time(:,3);
 
 %convert month into season scale
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath '...\CalCOFI\code_CalCOFI\'
 season=[];
 for s=1:height(time)
     season(s,:)=month2season(time(s,2));
@@ -109,6 +109,6 @@ x.Properties.VariableNames=["Year","Month","Date","Season","Line","Station","Lat
     "HeteroBacteria","Prochlorococcus","Synechococcus","Picoeukaryotes"];     
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Micro')
+cd('...\CalCOFI\Micro')
 filename=['PicoBacteria_aver10m.csv'];
 writetable(x,filename);
