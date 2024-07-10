@@ -3,17 +3,17 @@
 close all
 clear all
 % import station-coordinate chart
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\CruiseInfo\'
+addpath '...\CalCOFI\CruiseInfo\'
 staorder = readtable('CalCOFIStationOrder.csv',VariableNamingRule='preserve')
 % import MHW event table (with coordinate)
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\MHW\output\csv_mat-file\'
+addpath '...\MHW\output\csv_mat-file\'
 mhw = readtable('newMHW_1982-2021.csv',VariableNamingRule='preserve')
 
 % import targeted file
 list={'Calanoid_copepod','copepoda_eucalanids','copepoda_harpacticoida','copepoda_poecilostomatoids'...
     'euphausiids','nauplii','oithona_like','pyrosomes','salp','doliolids'}; 
 for a=1:length(list)
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_zooscan\')
+cd ('...\CalCOFI\Output\output_zooscan\')
 taxa=char(string(list(a)));
 eval(['zoosc = readtable("YJ_ZooScan_',taxa,'.csv",VariableNamingRule="preserve")']);
 
@@ -86,7 +86,7 @@ extend.Properties.VariableNames=["occurrence","mhw_onset","mhw_end","mhw_dur","i
 picofinal=[piconew extend];
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\output\output_mhwbio\mhw_zooscan\')
+cd('...\CalCOFI\output\output_mhwbio\mhw_zooscan\')
 filename=['MHWOccurrence_YJ_ZooScan_',taxa,'.csv'];
 writetable(picofinal,filename);
 end
