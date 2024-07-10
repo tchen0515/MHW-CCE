@@ -1,7 +1,7 @@
 clear all
 close all
 % import raw data & extract selected columns
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Fish\')
+cd ('...\CalCOFI\Fish\')
 raw = readtable('Fish from Andrew Thompson_wdates.csv',VariableNamingRule='preserve');
 time=datevec(raw.Date);
 bio=raw(:,[4 5 7 6 8 9]);
