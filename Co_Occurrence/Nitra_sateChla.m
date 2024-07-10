@@ -3,11 +3,11 @@ close all
 clear all
 
 % import Final_MHW_nitracline
-cd('/nexsan/people/tchen/CalCOFI/output_mhwbio/')
+cd('.../CalCOFI/output_mhwbio/')
 nitra=readtable('OriFinal_MHW_Nitracline.csv',"VariableNamingRule","preserve");
 
 %import Chla anomaly
-cd('/nexsan/people/tchen/CalCOFI/output_phyto/')
+cd('.../CalCOFI/output_phyto/')
 % load("chla_anomaly.mat") %chlaano
 load("chlalog10_anomaly_workspace_240404.mat") % origianl log-transformed Chla
 
@@ -52,6 +52,6 @@ end
 nitra.Chla=tagetChla
 
 % export output
-cd('/nexsan/people/tchen/CalCOFI/output_mhwbio/')
+cd('.../CalCOFI/output_mhwbio/')
 filename='Nitra_satelliteChla.csv';
 writetable(nitra,filename)
