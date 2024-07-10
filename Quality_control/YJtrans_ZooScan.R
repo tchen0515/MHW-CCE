@@ -1,7 +1,7 @@
 ###calculate anomaly of CalCOFI ZooScan data
-path_zoo<-('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/Zoo/ZooScan')
+path_zoo<-('.../CalCOFI/Zoo/ZooScan')
 list=dir(path_zoo,".csv")
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/Zoo/ZooScan')
+setwd('.../CalCOFI/Zoo/ZooScan')
 list[26]
 zooall<-read.csv(list[26],header=FALSE)
 
@@ -26,7 +26,7 @@ trans_zoo<-cbind(zooall,p)
 colnames(trans_zoo)<-c(colnames(zooall),"yj_Abundance")
 
 #export table
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/Zoo/yj_ZooScan')
+setwd('.../CalCOFI/Zoo/yj_ZooScan')
 write.csv(trans_zoo,file=sprintf("YJ_%s.csv",gname))
 
 
