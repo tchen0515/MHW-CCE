@@ -3,11 +3,11 @@ clear all
 close all
 
 % import MHW event table (with coordinate)
-addpath '/nexsan/people/tchen/mhw/csv_mat-file/'
+addpath '.../mhw/csv_mat-file/'
 mhw = readtable('newMHW_1982-2021.csv',VariableNamingRule='preserve')
 
 % import Chla anomaly
-cd('/nexsan/people/tchen/CalCOFI/output_phyto/')
+cd('.../CalCOFI/output_phyto/')
 load("chlalog10_anomaly_workspace_240404.mat") %
 
 % Grid of staellite Chla: upper-left corner (45,-140) & lower-right corner (30.03597,-115.5454)
@@ -70,7 +70,7 @@ mhw2=mhw;
 mhw2.Chla=negmostchla;
 
 % export output
-cd('/nexsan/people/tchen/CalCOFI/output_mhwbio/')
+cd('.../CalCOFI/output_mhwbio/')
 filename='v2_MHWOccurrence_negmostChla.csv';
 writetable(mhw2,filename)
 
