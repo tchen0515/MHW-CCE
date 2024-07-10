@@ -2,7 +2,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto\')
+cd ('...\CalCOFI\Phyto\')
 hplc = readtable('HPLC_aver16m.csv');   % dataframe generated in depth_averaging_HPLC.m. Use the new QC version
 
 %% calculate average abundance for each line-station
@@ -144,6 +144,6 @@ final.Properties.VariableNames=["Year","Month","Date","Season","Line","Station",
     "dvChla","hexfucox","fucox"];
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\output\output_phyto')
+cd('...\CalCOFI\output\output_phyto')
 filename=['v2_Anomaly_HPLC.csv'];
 writetable(final,filename);
