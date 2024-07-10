@@ -1,5 +1,5 @@
 ###calculate anomaly of CalCOFI ZooScan data
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/Fish')
+setwd('.../CalCOFI/Fish')
 #fish<-read.csv('FishEgg_025grid.csv',header=TRUE) #datasheet generated from convertDaily_FishhEgg.m 
 fish<-read.csv('integrated_FishEgg_025grid.csv',header=TRUE) 
 
@@ -27,7 +27,7 @@ trans_fish<-cbind(fish,sarp,ancp)
 colnames(trans_fish)<-c(colnames(fish),"yj_sardine","yj_anchovy")
 
 #export table
-setwd('C:/Users/Tz-Chian Chen/OneDrive - Florida State University/CalCOFI/Fish')
+setwd('.../CalCOFI/Fish')
 write.csv(trans_fish,file=sprintf("YJ_FishEgg_025grid_1215.csv"))
 
 # Install and load the 'MASS' package
