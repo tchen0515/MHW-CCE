@@ -3,7 +3,7 @@ clear all
 close all
 
 % import data
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\other\')
+cd('...\CalCOFI\other\')
 raw=readtable('CalCOFI Bottle Data (1970 - 2021).xlsx','Sheet','in');
 
 %% extract the NO3 information
@@ -48,7 +48,7 @@ Tinfo=array2table(Tinfo);
 Tinfo.Properties.VariableNames=["Year","Month","Day"];
 
 %convert month into season scale
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath '...\CalCOFI\code_CalCOFI\'
 season=Tinfo.Month;
 for s=1:height(season)
     season(s)=month2season(season(s));
@@ -59,5 +59,5 @@ Season.Properties.VariableNames="Season";
 cnitra=[Tinfo Season ppure(:,5:6) ppure(:,1:4)]
 
 %%export data
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\other\')
+cd('...\CalCOFI\other\')
 writetable (cnitra,"clean_nitra.csv")
