@@ -3,10 +3,10 @@ clear all
 close all
 
 % import SST-related dataset
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\MHW\output\csv_mat-file\')
+cd ('...\MHW\output\csv_mat-file\')
 % load('AVHRR_workspace_1982-2021.mat') 
 load('mhw_stdanomaly_240409.mat')  % SD standardized MHW intensity. Be sure to see if you are using original or SD version (mhw_ts/mhw_sdts)
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio')
+cd('...\CalCOFI\Output\output_mhwbio')
 puremhwsate = readtable('v2_MHWOccurrence_negmostChla.csv',VariableNamingRule='preserve'); %change file name
 
 %extract max SD-int
@@ -26,8 +26,8 @@ puremhwsate2=puremhwsate;
 puremhwsate2.Chla=[];
 
 %export table
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_mhwbio\OriBio-SDMHW')
+cd('...\CalCOFI\Output\output_mhwbio\OriBio-SDMHW')
 writetable(puremhwsate,'OriMHWOccurrence_negmostChla.csv')
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\MHW\output\csv_mat-file\')
+cd('...\MHW\output\csv_mat-file\')
 writetable(puremhwsate2,'newMHW_1982-2021_sd_south.csv')
 
