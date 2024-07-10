@@ -4,7 +4,7 @@ close all
 clear all
 
 %import data
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd ('...\CalCOFI\Phyto')
 ppure = readtable('Chla_RawFromBottle.csv',VariableNamingRule='preserve'); % data generated in clean_Chla.csv
 % set 0-m value as 1-m value
 ppure.Depthm(ppure.Depthm==0)=1;
@@ -97,7 +97,7 @@ x(~x.Year,:) = [];
 x.Chla=x.Chla*10^-3;
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd('...\CalCOFI\Phyto')
 filename=['Chla_VerticalInte.csv'];
 writetable(x,filename);
 
