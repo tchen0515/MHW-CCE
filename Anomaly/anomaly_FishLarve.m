@@ -2,7 +2,7 @@
 clear all
 close all
 % import YJ_trans_FishLarve.csv
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Fish\')
+cd ('...\CalCOFI\Fish\')
 ALLbio = readtable('YJ_FishLarve1215.csv',VariableNamingRule='preserve')
 ALLbio= ALLbio(:,2:end);
 
@@ -146,6 +146,6 @@ final.Properties.VariableNames=["Line","Station","Latitude","Longitude","Year","
 
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Output\output_zooother')
+cd('...\CalCOFI\Output\output_zooother')
 filename=['Anomaly_FishLarve1215.csv'];
 writetable(final,filename);
