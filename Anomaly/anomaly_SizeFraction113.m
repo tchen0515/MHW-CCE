@@ -2,7 +2,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\USER\OneDrive - Florida State University\CalCOFI\Phyto\')
+cd ('...\CalCOFI\Phyto\')
 raw = readtable('SizeFraction_113.csv',VariableNamingRule='preserve')  %accumulative sum
 raw.Properties.VariableNames(5)="StationID";
 raw.Properties.VariableNames(9:end)=    ["Latitude","Longtitude",...
@@ -30,7 +30,7 @@ tablecontent(tablecontent < 0) = NaN;
 raw{1:height(raw), 11:25} = tablecontent;
 
 % Check the data distribution (package:fitmethis)
-% addpath 'C:\Users\USER\OneDrive - Florida State University\matlab&linux'
+% addpath '...\matlab&linux'
 % output will indicate the rank of distribution type and show the hist polt
 % X2 = fitmethis(raw.("Chla1-3um"))
 % X3 = fitmethis(raw.("Chla3-8um"))
@@ -46,7 +46,7 @@ for i=1:length(raw.studyName)
    cruise_ym(i,2) = str2double(cruise(i,6:7));
 end
 %convert month into season scale
-addpath 'C:\Users\USER\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath '...\CalCOFI\code_CalCOFI\'
 season=cruise_ym(:,2);
 for s=1:height(season)
     season(s)=month2season(season(s));
@@ -386,7 +386,7 @@ final.Properties.VariableNames=["Year","Month","Day","Season","Line","Station",.
         "Chlalower1um","Chla1-3um","Chla3-8um","Chla8-20um","Chlalarge20um"];
 
 % export all Cruise-LineStation-Anomalies in this file
-cd('C:\Users\USER\OneDrive - Florida State University\CalCOFI\output\output_phyto')
+cd('...\CalCOFI\output\output_phyto')
 filename=['v2_Anomaly_SizeFraction_113_v2.csv']; % do not overwrite the version 1
 writetable(final,filename);
 
