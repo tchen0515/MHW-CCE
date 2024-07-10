@@ -2,7 +2,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\other\CalCOFI_Database_194903-202010_csv_26062023\')
+cd ('...\CalCOFI\other\CalCOFI_Database_194903-202010_csv_26062023\')
 raw = readtable('194903-202010_Bottle.csv',VariableNamingRule='preserve');
 
 % eliminate missing or bas quality value
@@ -45,7 +45,7 @@ Tinfo=array2table(Tinfo);
 Tinfo.Properties.VariableNames=["Year","Month","Day"];
 
 %convert month into season scale
-addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\code_CalCOFI\'
+addpath '...\CalCOFI\code_CalCOFI\'
 season=Tinfo.Month;
 for s=1:height(season)
     season(s)=month2season(season(s));
@@ -56,5 +56,5 @@ Season.Properties.VariableNames="Season";
 ppure=[Tinfo Season ppure]; % insert temporal information 
 
 %export data
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Phyto')
+cd ('...\CalCOFI\Phyto')
 writetable(ppure,'Chla_RawFromBottle.csv')
