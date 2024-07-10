@@ -3,7 +3,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Micro\')
+cd ('...\CalCOFI\Micro\')
 raw = readtable('PicoBacteria_aver10m.csv',VariableNamingRule='preserve'); % dataframe generated in depth_averaging_PicoBacteria.m 
 % raw.Properties.VariableNames(4)=["DatetimeUTC"];
 % raw.Properties.VariableNames(7:8)=["Latitude","Longitude"];
