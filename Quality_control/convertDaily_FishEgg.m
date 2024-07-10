@@ -2,7 +2,7 @@
 clear all
 close all
 % import data & assort the form
-cd ('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Fish\')
+cd ('...\CalCOFI\Fish\')
 raw = readtable('CalCOFI Continuous Underway Fish-Egg Sampler.csv','VariableNamingRule','preserve'); %rawest data (not YJ-trans)
 fegg=raw(2:end,[5:7 10:12 14:15]);
 
@@ -35,7 +35,7 @@ idx2=(find(fegg1.latitude==fegg1.stop_latitude&fegg1.longitude==fegg1.stop_longi
 fegg2=fegg1(idx2,:); 
 
 % transfer the global coordinate into Line-Station
-% addpath 'C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\CruiseInfo\'
+% addpath '...\CalCOFI\CruiseInfo\'
 % staorder = readtable('CalCOFIStationOrder.csv',VariableNamingRule='preserve');
 % 
 % % select the region covering the station 
@@ -147,6 +147,6 @@ finalfish=finalfish(finalfish.st_Year~=0,:);
 
 
 % export the table
-cd('C:\Users\Tz-Chian Chen\OneDrive - Florida State University\CalCOFI\Fish\')
+cd('...\CalCOFI\Fish\')
 filename=['integrated_FishEgg_025grid_1215.csv'];
 writetable(finalfish,filename);
