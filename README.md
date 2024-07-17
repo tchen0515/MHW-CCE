@@ -12,7 +12,7 @@ m_map is recommended for generating figures
 R package "bestNormalize" are needed for Yeo-Johnson power transformation
 
 # Data source
-Compiled data (MHW-in situ data.xlsx and MHW-satellite Chla.xlsx) used in the analysis are available on CCE LTER DataZoo data repository and Environmental Data Initiative (EDI) repository (https://oceaninformatics.ucsd.edu/datazoo/catalogs/ccelter/datasets/319 and https://doi.org/10.6073/pasta/537aae78a89c161ffdf3d84c50e88156).
+Compiled data (MHW-in situ data.xlsx and MHW-satellite Chla.xlsx) used in the analysis are available on CCE LTER DataZoo data repository and Environmental Data Initiative (EDI) repository (https://doi.org/10.6073/pasta/be6d2547424b1f9a6da933392b3c3979 and https://doi.org/10.6073/pasta/537aae78a89c161ffdf3d84c50e88156).
 
 # Reference
 Zhao, Z., & Marin, M. (2019). A MATLAB toolbox to detect and analyze marine heatwaves. Journal of Open Source Software, 4(33), 1124.
