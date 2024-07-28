@@ -1,10 +1,10 @@
 # MHW-CCE
 The files contains the codes used in Chen et al: Multi-trophic level responses to marine heatwave disturbances in the California Current Ecosystem
-These codes can mainly be catgorized into four folders: statistical analyses, figure plotting, data pre-processing, and anomalies calculation. The first two folders are for main analysis while the latter two folders are for data quality control.  
+These codes can mainly be catgorized into three branches: 1) Satellite data processing ,2) _In situ_ data processing and 3) Main analyses. Each branches have their own readme file to explain the propose of each codes and elborate the order of running the codes. The links of raw data source and the required packages/functions are also indicated in the code comments in each codes.   
+Please note that some samplings are ongoing projects (e.g. ZooScan), so new raw data from each website may be updated periodically.
 
-# Instruction
-The instruction is elaborated in Main_MHWbio.mlx. This live stript can also be directly used for running the codes. Please check the directory of inputs or outputs indicated in each code.
-The compiled data used in the analysis are provided here (MHW-in situ data.xlsx/MHW-satelliteChla.xlsx/Statistics_MHW_final.xlsx). The raw data sources are from CCE-LTER website (indicated in the manuscript).
+# Example data 
+
 
 # Package requirement
 m_mhw1.0 and fitmethis are recommended for analysis
