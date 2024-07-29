@@ -16,7 +16,7 @@ lonmin=-127.5;
 lonmax=-116;
 
 % import station-coordinate chart
-addpath 'MHW-CCE/file/' % https://calcofi.org/sampling-info/station-positions/
+addpath '...' % https://calcofi.org/sampling-info/station-positions/
 staorder = readtable('CalCOFIStationOrder.csv',VariableNamingRule='preserve')
 staorder = staorder(staorder.Line>=76.7,:);
 
