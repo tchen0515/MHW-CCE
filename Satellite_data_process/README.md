@@ -1,4 +1,4 @@
-# 1. Satellite data processing
+# 1. MHW detection and the anomalies of satellite Chla during MHWs
 These scripts detect the occurrence of Marine Heatwaves (MHWs), calculate MHW characteristics, and assess anomalies in surface chlorophyll-a (Chla). The outputs of these scripts will be used in further analysis to detect the co-occurrence of MHWs and biological anomalies.. 
 
 ## 1.1	SST & MHW detection
