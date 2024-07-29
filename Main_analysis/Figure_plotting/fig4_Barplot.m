@@ -3,7 +3,7 @@ close all
 clear all
 
 % import the combined sheet of statistical results
-cd('MHW-CCE/file/')
+cd('MHW-CCE/Main_analysis/file')
 mhwmag=readtable('Statistics_MHWbio_final.xlsx','UseExcel',true,'Sheet','OriIntensity_south',VariableNamingRule='preserve');
 mhwdur=readtable('Statistics_MHWbio_final.xlsx','UseExcel',true,'Sheet','OriDuration_south',VariableNamingRule='preserve');
 
