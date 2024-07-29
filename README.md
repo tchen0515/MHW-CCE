@@ -28,6 +28,10 @@ R package "tidyverse" and "bestNormalize"
 [lat2cc](https://calcofi.org/sampling-info/station-positions/2013-line-sta-algorithm/) and [StationOrder.csv](https://calcofi.org/sampling-info/station-positions/) 
 
 # Data source
+Satellite sea surface temperature: https://podaac.jpl.nasa.gov/dataset/AVHRR_OI-NCEI-L4-GLOB-v2.0
+
+Satellite chlorophyll a concentration: https://spg-satdata.ucsd.edu/CC4km/
+
 Net primary production, vertically integrated chlorophyll (https://calcofi.org/data/oceanographic-data/bottle-database/)
 
 Size-fractionated chlorophyll (https://doi.org/10.6073/pasta/8ebed2a2ac22a27b23e7ba98f10dcbb4), HPLC (https://doi.org/10.6073/pasta/831e099fb086954d3d73638d33d3dd05)
