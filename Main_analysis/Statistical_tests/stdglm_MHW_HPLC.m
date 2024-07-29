@@ -5,7 +5,7 @@ clear all
 
 % required package gmregress (https://www.mathworks.com/matlabcentral/fileexchange/27918-gmregress)
 % import data
-cd('MHW-CCE/file/') 
+cd('MHW-CCE/Main_analysis/file') 
 mashup=readtable('table_325.csv',"VariableNamingRule","preserve"); % in situ data: https://doi.org/10.6073/pasta/be6d2547424b1f9a6da933392b3c3979 
 
 mashup.DivinylChla=str2double(mashup.DivinylChla);
