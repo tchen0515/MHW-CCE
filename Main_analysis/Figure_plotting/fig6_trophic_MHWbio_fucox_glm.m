@@ -5,9 +5,9 @@ close all
 
 % import data (Final_MHW)
 cd('.../output')
-zoo = readtable("OriFinal_MHW_ZDV.csv","VariableNamingRule","preserve") % output of insitu_data_processing/ZDV.m
-Fucoxanthin = readtable("OriFinal_MHW_HPLC.csv","VariableNamingRule","preserve") % output of insitu_data_processing/HPLC.m
-cd('MHW-CCE/file/')
+zoo = readtable("OriFinal_MHW_ZDV.csv","VariableNamingRule","preserve") % output of insitu_data_process/ZDV.m
+Fucoxanthin = readtable("OriFinal_MHW_HPLC.csv","VariableNamingRule","preserve") % output of insitu_data_process/HPLC.m
+cd('MHW-CCE/Main_analysis/file')
 mashup=readtable('table_325.csv',"VariableNamingRule","preserve"); % insitu data: https://doi.org/10.6073/pasta/be6d2547424b1f9a6da933392b3c3979 
 mashup.Fucoxanthin=mashup.Fucoxanthin;
 mashup.ZooDisplace=mashup.ZooDisplace;
