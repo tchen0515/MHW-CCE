@@ -1,5 +1,5 @@
 # MHW-CCE
-The files contain the codes used in Chen _et al._: Multi-trophic level responses to marine heatwave disturbances in the California Current Ecosystem. These codes can mainly be categorized into three parts, stored as three folder in this repository:
+This repository contain the codes used in Chen _et al._: Multi-trophic level responses to marine heatwave disturbances in the California Current Ecosystem. The scripts are organized into three main categories, each stored in separate folders within this repository:
 
 1) Satellite data process
 
@@ -7,8 +7,8 @@ The files contain the codes used in Chen _et al._: Multi-trophic level responses
 
 3) Main analyses
 
-The scripts in data process folders are designed to compile the most recent versions of the satellite and _in situ_ datasets using the up-to-date version of the raw data. When using up-to-date raw data, some scripts may require initial parameter declaration for the period of the dataset. The scripts in main analysis folder are written primarily to reproduce the datasets and figures included in the present study using the datasets as they existed at the time of publishing, which we have uploaded to the EDI repository or this branch as example files. These files will not be updated. In addition, the outputs from the script in data process folders that were used in main analyses are provided here as example files (MHW-CCE/Main_analysis/file/).
-Each folder has its own README file explaining the purpose of each script, the sequence in which they should be run and the required packages or function. The links to raw data sources required packages, functions, and outputs from other scripts are indicated in the code comments and README files to help users understand the dependencies and execution order.
+The scripts in data processing folders (**insitu_data_process** and **Satellite_data_process**) are designed to compile the most recent versions of the satellite and _in situ_ datasets using the latest raw data. When using up-to-date raw data, some scripts may require initial parameter declarations for the dataset period. The scripts in main analysis folder (**Main_analysis**) are written primarily to reproduce the datasets and figures included in the present study using the datasets as they existed at the time of publishing, which we have uploaded to the EDI repository or here as example files and will not be updated. In addition, the outputs from the script in data process folders that were used in main analysis are provided here as example files (MHW-CCE/Main_analysis/file/).
+Each folder contains a README file explaining the purpose of each script, the sequence in which they should be run, and the required packages or functions. Links to raw data sources, required packages, functions, and outputs from other scripts are included in the code comments to assist users with understanding dependencies and execution order.
 
 # Package/Function requirement
 [m_mhw1.0](https://github.com/ZijieZhaoMMHW/m_mhw1.0?tab=readme-ov-file)
