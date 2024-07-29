@@ -28,14 +28,6 @@ The output *mhw_stdanomaly_240409.mat* is used in the further analysis detect th
 |5|stationCoordinate_satelliteChla.m|Find the most negative Chla anomaly for every grid in each MHW event|
 |6|maxSDint_sateChla.m|Coordinate the most negative Chla anomaly and maximum standardized MHW intensity in every MHW event|
 
-### Example file
-
-| File    |Description|
-|----------|--------|
-|newMHW1982-2021.csv|The table of MHW occurrence from 1982 to 2021 (output **MHW** from m_mhw1.0) for each global grid, as used in Chen _et al._|
-
-|||
-
 ### Package requirement
 [m_mhw1.0](https://github.com/ZijieZhaoMMHW/m_mhw1.0?tab=readme-ov-file) are required for detecting the MHW occurrence.
 
