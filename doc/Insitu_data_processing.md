@@ -1,5 +1,5 @@
 # 2.	The anomalies of _in situ_ sampling variables during MHWs
-  These scripts detect anomalies during MHWs for each _in situ_ sampling variable. The final outputs of these scripts are used to generate the compiled data for the main analyses (e.g., table_325.csv). During the power transformation process, the datasets of microbial variables and ZDV are log-10 transformed, while the Nitracline, Fish egg & larvae, and ZooScan datasets undergo Yeo-Johnson transformation in R. Therefore, both MATLAB and R scripts will be used interactively for those datasets, and the order for running the codes is indicated below.
+  These scripts calculate the anomalies of each _in situ_ sampling variable and detect the sampling during MHWs. The final outputs of these scripts are used to generate the compiled data for the main analyses (e.g., table_325.csv). During the power transformation process, the datasets of microbial variables and ZDV are log-10 transformed, while the Nitracline, Fish egg & larvae, and ZooScan datasets undergo Yeo-Johnson transformation in R. Therefore, both MATLAB and R scripts will be used interactively for those datasets, and the order for running the codes is indicated below.
 ## log-10 transformation
 |Code|Dataset|
 |------|-----|
