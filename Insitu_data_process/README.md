@@ -10,7 +10,6 @@
 |SizeFraction.m|Size Fractionated Chlorophyll|
 |ZDV.m|Zooplankton Displacement Volume|
 ## Yeo-Johnson transformation
-### ZooScan
 For ZooScan taxon-specific abundance, we first used R to clean up the raw data and then conducted the rest of the processing in MATLAB.
 Usage order|Code|
 |------|------|
@@ -18,24 +17,12 @@ Usage order|Code|
 |2|ZooScan_afterYJ.m|
 
 For Nitracline dpeth, Fish egg & larvae data, we first used MATLAB to clean up data, and then switched to R for conducting Yeo-Johnson transformations, and back to MATLAB to conduct the rest of the processing.
-### Nitracline
-|Usage order|Code|
-|------|------|
-|1|Nitracline_beforeYJ.m|
-|2|Nitraclin _YJtrans.R|
-|3|Nitracline_afterYJ.m|
-### Fish egg
-|Usage order|Code|
-|------|------|
-|1|FishEgg_beforeYJ.m|
-|2|FishEgg_YJtrans.R|
-|3|FishEgg_afterYJ.m|
-### Fish larvae
-|Usage order|Code|
-|------|------|
-|1|FishLarvae_beforeYJ.m|
-|2|FishLarvae_YJtrans.R|
-|3|FishLarvae_afterYJ.m|
+|Usage order|Nitracline|Fish egg|Fish larvae|
+|------|------|------|-------|
+|1|Nitracline_beforeYJ.m|FishEgg_beforeYJ.m|FishLarvae_beforeYJ.m|
+|2|Nitraclin _YJtrans.R|FishEgg_YJtrans.R|FishLarvae_YJtrans.R|
+|3|Nitracline_afterYJ.m|FishEgg_afterYJ.m|FishLarvae_afterYJ.m|
+
 
 In our study, we also investigated how MHW impacts on plankton trophic relationship by calculating the correlation of ZDV and four potential prey variables (Satellite Chla, Vertically-integrated Chla, Chla >20 um and Fucoxanthin) during MHWs. Due to the inconsistent temporal scale between satellite Chla and _in situ_ sampling data, the co-occurrence of ZDV and satellite Chla during MHWs needs to be detected before investigating the impact of MHWs on plankton trophic relationships.
 |Code|Description|
