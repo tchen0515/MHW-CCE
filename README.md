@@ -13,12 +13,5 @@ Please note that some samplings are ongoing projects (e.g. ZooScan), so new raw 
 
 [m_map](https://www.eoas.ubc.ca/~rich/map.html) is recommended for generating figures
 
-
 R package "tidyverse" and "bestNormalize" are needed for Yeo-Johnson power transformation
 
-# Example
-|Code|Description|
-|------|------|
-|MHW-in situ data.xlsx| [The co-occurrence of MHW characteristics and *in situ* sampling from CCE-CalCOFI Augmented Cruises in the California Current System](https://doi.org/10.6073/pasta/be6d2547424b1f9a6da933392b3c3979)|
-|MHW-satellite data.xlsx|[The co-occurrence of MHW characteristics and satellite-observed Chlorophyll concentration in the California Current System](https://doi.org/10.6073/pasta/537aae78a89c161ffdf3d84c50e88156)|
-|Statistics_MHWbio_final.xlsx|Main table containg the statisitcal results of the correlation of MHW characterisitcs and each variable for the figure plotting.
