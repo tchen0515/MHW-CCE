@@ -4,11 +4,11 @@ close all
 clear all
 
 % Before running this script, making sure you have imported the data 
-cd ('...\CalCOFI\output_phyto')
+cd ('.../output')
 load('chla_log10_workspace.mat')      % the merged time-series dataset of log-10 transformed satellite Chla
 
 % load packages m_mhw1.0 (https://github.com/ZijieZhaoMMHW/m_mhw1.0)
-cd ('.../mhw/m_mhw1.0-master/') 
+cd ('.../m_mhw1.0-master/') 
 % parameters setup
 time = datenum(1996,11,1):datenum(2020,5,12); % the start date and end date the satellite Chla dataset. Change the end date if you use up-to-date data
 cli_start= datenum(1996,11,1)
@@ -59,5 +59,5 @@ indextocal = day(datetime(date_mhw),'dayofyear'); % select the correspondent day
   end
 
 % save the worksapce 
-cd ('.../output_phyto/')
+cd ('.../output/')
 save('chlalog10_anomaly_workspace_240404','-v7.3')
