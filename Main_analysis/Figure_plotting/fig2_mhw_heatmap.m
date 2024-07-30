@@ -7,7 +7,7 @@ close all
 % function cc2lat & lat2cc for converting line-station to global cooridate: https://calcofi.org/sampling-info/station-positions/2013-line-sta-algorithm/
 
 % import data
-addpath 'MHW-CCE/file/'
+addpath 'MHW-CCE/Main_analysis/file/'
 mhw = readtable('newMHW_1982-2021_sd_south.csv'); % output from maxSDint.sateChla.m
 
 %% insert line station coverted information
