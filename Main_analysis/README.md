@@ -31,7 +31,9 @@ Compiled data used in the study are provided as an example for future users who 
 |----------------------------------------|--------------|
 |table_325.csv|The co-occurrence of MHW characteristics and in situ sampling from CCE-CalCOFI Augmented Cruises in the California Current System,1983~2021 (link)[https://doi.org/10.6073/pasta/be6d2547424b1f9a6da933392b3c3979]|
 |table_326.csv|The co-occurrence of MHW characteristics and satellite-observed Chlorophyll concentration in the California Current System,1996~2020 (link)[https://doi.org/10.6073/pasta/537aae78a89c161ffdf3d84c50e88156]|
-|newMHW1982-2021_sd_south.csv|The MHW occurrence in each global grid in Southern CCE region from 1982-2021|
+|OriFinal_MHW_HPLC.csv|The co-occurrence of MHW characteristics and HPLC variables. Output of Insitu_data_process/HPLC.m|
+|OriFinal_MHW_ZDV.csv|The co-occurrence of MHW characteristics and ZDV. Output of Insitu_data_process/ZDV.m|
+|newMHW1982-2021_sd_south.csv|The MHW occurrence in each global grid in Southern CCE region from 1982-2021.Output of Satellite_data_process/maxSDint_sateChla.m|
 |Statistics_MHWbio_final.xlsx| Combined statistical test results for the following figure plotting|
 
 # Package requirement
