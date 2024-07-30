@@ -4,7 +4,7 @@ close all
 
 % import MHW event table (with coordinate)
 addpath '...'
-mhw = readtable('newMHW_1982-2021.csv',VariableNamingRule='preserve');  % output from package m_mhw1.0
+mhw = readtable('newMHW_1982-2021.csv',VariableNamingRule='preserve');  % output from package m_mhw1.0/detect.m (variable name: MHW)
 
 % import Chla anomaly
 cd('...')
