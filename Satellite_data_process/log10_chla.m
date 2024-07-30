@@ -2,7 +2,7 @@
 close all
 clear all
 %import data
-cd ('...')
+cd ('.../output')
 load("chla_full_mid.mat") % output from bind_chla.m
 
 %% eliminate invalid Chla values
