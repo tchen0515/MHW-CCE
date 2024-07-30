@@ -13,7 +13,7 @@ Additionally, Using the outputs from m_mhw1.0, we calculate the standardized SST
 
 | Code     |Description|
 |----------|--------|
-|sd_SSTanomaly.m| Caculate standardized MHW intensity|
+|sd_SSTanomaly.m| Caculate standardized SST anomaly|
 
 The output *mhw_stdanomaly_240409.mat* is used in the further analysis detect the corresponding MHW intensity for each sampling (see Section The anomalies of _in situ_ sampling variables during MHWs). 
 ## 1.2	Satellite-observed Chla
