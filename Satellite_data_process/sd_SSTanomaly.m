@@ -5,7 +5,7 @@ clear all
 
 % load the outputs from m_mhw1.0 
 cd('...')
-load('AVHRR_workspace_1982-2021.mat') % outputs from m_mhw1.0
+load('AVHRR_workspace_1982-2021.mat') % outputs from m_mhw1.0/detect.m
 
 % initial parameters set up (change the date if you use up-to-date data)
 cli_start= datenum(1982,1,1);    % the duration of climatology
