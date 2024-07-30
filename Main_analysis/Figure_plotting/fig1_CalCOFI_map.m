@@ -21,7 +21,7 @@ staorder = readtable('CalCOFIStationOrder.csv',VariableNamingRule='preserve')
 staorder = staorder(staorder.Line>=76.7,:);
 
 % transferring between CalCOFI station and coordinate of each station
-addpath '.../package' % https://calcofi.org/sampling-info/station-positions/2013-line-sta-algorithm/
+addpath '...' % https://calcofi.org/sampling-info/station-positions/2013-line-sta-algorithm/
 % station to coordinate
 [latoff, lonoff] = cc2lat(90,120)  % offshore
 [latin, lonin] = cc2lat(80,51)   % inshore
@@ -36,7 +36,7 @@ off_y = round((latoff-24.875)/0.25);
 
 %% plotting section
 % plot basic CalCOFI region amp 
-addpath '...package/m_map'
+addpath '.../m_map/'    %package m_map
    figure('pos',[10 10 5000 10000])
 %    subplot(4,3,[1:6])
    m_proj('lambert','lon',[lonmin lonmax],'lat',[latmin latmax]);
